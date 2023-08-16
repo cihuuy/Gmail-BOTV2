@@ -18,7 +18,7 @@ class Browser:
         self.options = ChromeOptions()
         if proxy:
             self.options.add_argument(f'--proxy-server={proxy}')
-        self.driver = Chrome(r'C:\Users\KIEV-COP-4\chromedriver.exe', options=self.options)
+        self.driver = Chrome(r'chromedriver', options=self.options)
 
     def __enter__(self):
         return self
