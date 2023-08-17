@@ -108,6 +108,7 @@ def enter_phone_details(driver: webdriver.Chrome, phn_num, phn_id, wait):
     return phn_num, phn_id
 
 
+
 def enter_verify_otp(driver: webdriver.Chrome, phn_id, phn_num, wait):
      get_code = check_otp(phn_id)
 
