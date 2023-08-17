@@ -56,7 +56,7 @@ def check_otp(id):
             response = requests.get(status_url).text
 
 def enter_name_details(driver: webdriver.Chrome, f_name, l_name, username, password, wait):
-   first_name = wait.until(EC.element_to_be_clickable(
+    first_name = wait.until(EC.element_to_be_clickable(
         (By.XPATH, "/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[1]/div[1]/div/div[1]/div/div[1]/input")))
     slow_type(first_name, f_name)
 
@@ -81,6 +81,7 @@ def enter_name_details(driver: webdriver.Chrome, f_name, l_name, username, passw
 
     next_button = wait.until(EC.element_to_be_clickable((By.XPATH,
                                                         "/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button"))).click()
+
 
 def enter_phone_details(driver: webdriver.Chrome, phn_num, phn_id, wait):
    enter_phone_number = wait.until(EC.element_to_be_clickable((By.XPATH,
