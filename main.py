@@ -4,7 +4,7 @@ from random import choice, uniform
 import sys
 import subprocess
 from fake_headers import Headers
-import undetected_chromedriver as uc
+import undetected_chromedriver._compat as uc
 import warnings
 from plugin_config import *
 import selenium
