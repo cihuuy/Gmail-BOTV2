@@ -96,7 +96,7 @@ def enter_phone_details(driver: webdriver.Chrome, phn_num, phn_id, wait):
 
     try:
         check_phn_validity = wait.until(EC.element_to_be_clickable((By.XPATH,
-            "/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div/div[2]/div[2]/div"))))
+            "/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[2]/div/div[2]/div[2]/div")))
 
         if "used too many times" in check_phn_validity.text:
             phn_id, phn_num = phone_number_gen()
@@ -112,16 +112,15 @@ def enter_phone_details(driver: webdriver.Chrome, phn_num, phn_id, wait):
 def enter_verify_otp(driver: webdriver.Chrome, phn_id, phn_num, wait):
      get_code = check_otp(phn_id)
 
-    while(get_code == None):
-        back_button = wait.until(EC.element_to_be_clickable(
-            (By.XPATH, "/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/div/div[2]/div[1]/div/div/button"))).click()
+  while get_code == None:
+    back_button = wait.until(EC.element_to_be_clickable(
+        (By.XPATH, "/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/div/div[2]/div[1]/div/div/button"))).click()
 
-        phn_id, phn_num = phone_number_gen()
+    phn_id, phn_num = phone_number_gen()
 
-        phn_num, phn_id = Enter_Phone_Details(
-            driver, phn_num=phn_num, phn_id=phn_id, wait=wait)
+    phn_num, phn_id = enter_phone_details(driver, phn_num=phn_num, phn_id=phn_id, wait=wait)
 
-        get_code = check_otp(phn_id)
+    get_code = check_otp(phn_id)
 
     time.sleep(3)
 
